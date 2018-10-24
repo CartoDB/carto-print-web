@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>CARTO Web Printer</title>
+
+  <!-- Include Leaflet -->
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+  <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
+
+  <!-- Include CARTO.js -->
+  <script src="https://libs.cartocdn.com/carto.js/v4.1/carto.min.js"></script>
+
+  <!-- Include Airship -->
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.0-beta.0/airship.css">
+  <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.0-beta.0/icons.css">
+  <script src="https://libs.cartocdn.com/airship-components/v1.0.0-beta.0/airship.js"></script>
+
+  <!-- Include custom styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body class="as-app as-app--nav-left">
+  <as-responsive-content>
+
+
+    <!-- Sidebar-->
+    <aside class="as-sidebar as-sidebar--l as-sidebar--right" data-name="General info">
+      <div class="as-container as-bg--secondary">
+        <section class="as-mx--40 as-my--12">
+          <h1 class="as-subheader as-color--type-04">CARTO Web Printer</h1>
+        </section>
+      </div>
+      <div class="as-container as-container--scrollable">
+        <section class="as-box as-mb--24">
+          <div class="as-subheader as-color--type-02">Your CARTO user</div>
+          <p>
+            <input class="as-input" id="user" type="text" value="aromeu">
+          </p>
+          <div class="as-subheader as-color--type-02">Your CARTO API key</div>
+          <p>
+            <input class="as-input" id="api_key" type="text" value="default_public">
+          </p>
+          <div class="as-subheader as-color--type-02">Your BUILDER map URL</div>
+          <p>
+            <input class="as-input" id="map_id" type="text" value="https://team.carto.com/u/aromeu/builder/6e159dee-cc62-4872-8c87-28c7eb985302/embed">
+          </p>
+          <div class="as-subheader as-color--type-02">Paper size (cm)</div>
+          <as-dropdown
+            default-text="30x20"
+            can-clear="true" id="paper_size"></as-dropdown>
+          </br>
+          <div class="as-subheader as-color--type-02">DPI</div>
+          <as-dropdown
+            default-text="300"
+            can-clear="true" id="dpi"></as-dropdown>
+          </br>
+          <button class="as-btn as-btn--primary" id="load">Load</button>
+          <button class="as-btn as-btn--primary" id="print">Print</button>
+        </section>
+      </div>
+    </aside>
+    <main class="as-main">
+      <div class="as-map-area">
+          <div id="map"></div>
+          <div id="rect" style="position: absolute; background: rgba(100, 100, 100, 0.2); pointer-events: none; border-color: white; border-width: 3px; border-style: dashed;"></div>
+      </div>
+    </main>
+
+  </as-responsive-content>
+
+  <!-- Dashboard code -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
