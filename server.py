@@ -10,8 +10,6 @@ app = Flask(__name__)
 
 @app.route('/export')
 def export():
-    import ipdb
-    ipdb.set_trace(context=30)
     username = request.args.get('user')
     map_id = request.args.get('mapId')
     api_key = request.args.get('apiKey')
