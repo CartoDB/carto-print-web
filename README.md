@@ -1,8 +1,6 @@
 # carto-print-web
 
-https://github.com/CartoDB/franchise
-
-docker run --name franchise -p 3000:3000 carto/franchise
+A web service for https://github.com/CartoDB/carto-print
 
 ### Run locally
 
