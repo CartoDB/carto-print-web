@@ -29,9 +29,7 @@ applicationContent.addEventListener('ready', () => {
   const dropdown_dpi = document.querySelector('#dpi');
   dropdown_dpi.options = [
     { text: '72', value: '72' },
-    { text: '300', value: '300' },
-    { text: '600', value: '600' },
-    { text: '1200', value: '1200' }
+    { text: '300', value: '300' }
   ];
   dropdown_dpi.addEventListener('optionChanged', (event) => {
     dpi = event.detail;
@@ -66,7 +64,8 @@ applicationContent.addEventListener('ready', () => {
   const ny = [40.728527, -73.970947];
   const sf = [37.735969,-122.445374];
   const la = [33.838483,-117.960205];
-  window.map = L.map('map').setView(us, 5);
+  const es = [40.433360,-3.694153];
+  window.map = L.map('map').setView(es, 5);
   baseLayer.addTo(map);
 });
 
