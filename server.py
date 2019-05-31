@@ -18,7 +18,7 @@ def export():
     zoom = int(request.args.get('zoom'))
     bounds = request.args.get('bounds')
     dpi = int(request.args.get('dpi'))
-    img_format = request.args.get('imageFormat')
+    img_format = request.args.get('format')
 
     printer = Printer(username, map_id, api_key, width, height, zoom, bounds, dpi, img_format)
     result = printer.export('/tmp')
