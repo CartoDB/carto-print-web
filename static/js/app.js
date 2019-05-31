@@ -105,7 +105,14 @@ function drawRectangle(width_cm, height_cm) {
   var _minCorner = L.latLng(_minY, _minX);
   var _maxCorner = L.latLng(_maxY, _maxX);
   _bounds = L.latLngBounds(_minCorner, _maxCorner);
-  window.bbounds = bounds.toBBoxString()
+  var boundsStr = bounds.toBBoxString();
+  boundsArr = boundsStr.split(',');
+  bounds = []
+  bounds[0] = boundsArr[0]
+  bounds[2] = boundsArr[2]
+  bounds[1] = boundsArr[3]
+  bounds[3] = boundsArr[1]
+  window.bbounds = bounds.join(',')
   console.log(bounds.toBBoxString());
 
   if (window.pra) {
@@ -174,7 +181,8 @@ function sanitize(anything) {
 }
 
 function printMap() {
-  url = `export?mapId=${getMapId()}&width=${width}&height=${height}&dpi=${dpi}&user=${user}&apiKey=${apiKey}&zoom=${map.getZoom() + 1}&bounds=${bbounds}`
+  let theMapId = 'tpl_' + sanitize(getMapId());
+  url = `export?mapId=${theMapId}&width=${width}&height=${height}&dpi=${dpi}&user=${user}&apiKey=${apiKey}&zoom=${map.getZoom() + 1}&bounds=${bbounds}&format=RGBA`
   console.log(url);
   window.open(url, '_blank');
 }
