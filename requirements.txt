@@ -1,4 +1,4 @@
-carto-print==0.0.1
+carto-print==0.0.7
 Flask==1.0.2
 honcho==0.7.1
 gunicorn==19.6.0
