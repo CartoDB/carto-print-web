@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 @app.route('/iso')
-def iso():
+def isoline():
     mode = request.args.get('mode', default='walk')
     distance = float(request.args.get('distance', default='1000'))
     lat = float(request.args.get('lat'))
